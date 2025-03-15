@@ -1,5 +1,8 @@
 package com.jupter.speed.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +32,11 @@ public class StorangeService {
 		storange.setPrice(storangeDto.getPrice());
 		storange.setCategory(storangeDto.getCategory());
 		return storange;
+	}
+	
+	public List<StorangeDto> findAll() {
+		List<StorangeEntity> storanges = storangeRepository.findAll();
+		return storanges.stream().map(this::convertToDto).collect(Collectors.toList());
 	}
 
 	public void insert(StorangeDto storangeDto) {

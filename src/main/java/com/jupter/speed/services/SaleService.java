@@ -11,7 +11,7 @@ import com.jupter.speed.entities.SaleEntity;
 import com.jupter.speed.repositories.SaleRepository;
 
 @Service
-public class SeleService {
+public class SaleService {
 
 	@Autowired
 	private SaleRepository saleRepository;

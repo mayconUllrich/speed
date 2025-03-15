@@ -1,5 +1,8 @@
 package com.jupter.speed.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +36,11 @@ public class SaleItemService {
 		saleItem.setSale(saleItemDto.getSale());
 		saleItem.setStorange(saleItemDto.getStorange());
 		return saleItem;
+	}
+	
+	public List<SaleItemDto> findAll() {
+		List<SaleItemEntity> saleItems = saleItemRepository.findAll();
+		return saleItems.stream().map(this::convertToDto).collect(Collectors.toList());
 	}
 
 	public void insert(SaleItemDto saleItemDto) {
