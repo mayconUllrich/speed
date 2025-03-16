@@ -1,0 +1,37 @@
+Post Category
+
+{
+    "name": "Borracha"
+}
+
+Post Storange
+
+{
+    "name": "Lapis comum",
+    "price": 2.00,
+    "quantity": 10,
+    "category": {
+        "id": 1
+    }
+}
+
+Post Sale
+
+{
+    "totalPrice": 0.0
+}
+
+Post Sale-itens
+
+{
+    "quantity": 2,
+	"rebate": 0.0,
+	"price": 2.0,
+	"sale":{
+        "id": 1
+    },
+	"storange":{
+        "id": 3
+    }
+
+}

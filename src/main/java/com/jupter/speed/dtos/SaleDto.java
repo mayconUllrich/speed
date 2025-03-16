@@ -60,5 +60,4 @@ public class SaleDto {
 	public SaleDto() {
 		super();
 	}
-
 }

@@ -7,11 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "sale-item")
+@Table(name = "sale-itens")
 public class SaleItemEntity {
 
 	@Id
@@ -28,11 +29,11 @@ public class SaleItemEntity {
 	Double price;
 
 	@ManyToOne
-	@Column(name = "sale_id", nullable = false)
+	@JoinColumn(name = "sale_id", nullable = false, unique = false)
 	SaleEntity sale;
 
 	@ManyToOne
-	@Column(name = "storange_id", nullable = false)
+	@JoinColumn(name = "storange_id", nullable = false, unique = false)
 	StorangeEntity storange;
 
 	public Integer getId() {
@@ -105,5 +106,4 @@ public class SaleItemEntity {
 	public SaleItemEntity() {
 		super();
 	}
-
 }

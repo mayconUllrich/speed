@@ -17,7 +17,7 @@ public class CategoryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 
-	@Column(name = "name", nullable = false, length = 50)
+	@Column(name = "name", nullable = false, length = 50, unique = true)
 	String name;
 
 	public Integer getId() {
@@ -56,5 +56,4 @@ public class CategoryEntity {
 	public CategoryEntity() {
 		super();
 	}
-
 }

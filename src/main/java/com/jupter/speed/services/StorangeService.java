@@ -19,6 +19,7 @@ public class StorangeService {
 	private StorangeDto convertToDto(StorangeEntity storange) {
 		StorangeDto storangeDto = new StorangeDto();
 		storangeDto.setId(storange.getId());
+		storangeDto.setName(storange.getName());
 		storangeDto.setQuantity(storange.getQuantity());
 		storangeDto.setPrice(storange.getPrice());
 		storangeDto.setCategory(storange.getCategory());
@@ -28,6 +29,7 @@ public class StorangeService {
 	private StorangeEntity convertToEntity(StorangeDto storangeDto) {
 		StorangeEntity storange = new StorangeEntity();
 		storange.setId(storangeDto.getId());
+		storange.setName(storangeDto.getName());
 		storange.setQuantity(storangeDto.getQuantity());
 		storange.setPrice(storangeDto.getPrice());
 		storange.setCategory(storangeDto.getCategory());
