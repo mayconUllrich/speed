@@ -4,12 +4,25 @@ import java.util.Objects;
 
 import com.jupter.speed.entities.CategoryEntity;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class StorangeDto {
 
 	Integer id;
+	@NotEmpty(message = "Nome é obrigatório.")
+	@Size(min = 3, max = 50, message = "Nome deve ter entre 3 e 50 caracteres.")
 	String name;
+	@NotNull(message = "Preço é obrigatório.")
+	@DecimalMin(value = "0.0", inclusive = false, message = "preço deve ser maior que 0.")
 	Double price;
+	@NotNull(message = "Quantidade é obrigatória.")
+	@Min(value = 0, message = "Quantidade deve ser maior que 0.")
 	Integer quantity;
+	@NotNull(message = "Categoria é obrigatória.")
 	CategoryEntity category;
 
 	// Getters and Setters

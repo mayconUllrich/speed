@@ -5,13 +5,25 @@ import java.util.Objects;
 import com.jupter.speed.entities.SaleEntity;
 import com.jupter.speed.entities.StorangeEntity;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
 public class SaleItemDto {
 
 	Integer id;
+	@NotNull(message = "Quantidade é obrigatória.")
+	@Min(value = 0, message = "Quantidade deve ser maior que 0.")
 	Integer quantity;
+	@NotNull(message = "Desconto é obrigatório.")
+	@DecimalMin(value = "0.0", inclusive = true, message = "Desconto deve ser maior ou igual a 0.")
 	Double rebate;
+	@NotNull(message = "Preço é obrigatório.")
+	@DecimalMin(value = "0.0", inclusive = false, message = "Preço deve ser maior que 0.")
 	Double price;
+	@NotNull(message = "Venda é obrigatória.")
 	SaleEntity sale;
+	@NotNull(message = "Item de estoque é obrigatório.")
 	StorangeEntity storange;
 
 	// getters and setters

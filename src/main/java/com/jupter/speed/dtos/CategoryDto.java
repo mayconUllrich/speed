@@ -2,9 +2,14 @@ package com.jupter.speed.dtos;
 
 import java.util.Objects;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class CategoryDto {
 
 	Integer id;
+	@NotEmpty(message = "Nome é obrigatório.")
+	@Size(min = 3, max = 50, message = "Nome deve ter entre 3 e 50 caracteres.")
 	String name;
 
 	// Getters and Setters

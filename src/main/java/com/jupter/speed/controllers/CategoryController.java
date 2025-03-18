@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jupter.speed.dtos.CategoryDto;
 import com.jupter.speed.services.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
@@ -31,12 +33,12 @@ public class CategoryController {
 	}
 
 	@PostMapping
-	public void insert(@RequestBody CategoryDto categoryDto) {
+	public void insert(@RequestBody @Valid CategoryDto categoryDto) {
 		categoryService.insert(categoryDto);
 	}
 
 	@PutMapping
-	public CategoryDto update(@RequestBody CategoryDto categoryDto) {
+	public CategoryDto update(@RequestBody @Valid CategoryDto categoryDto) {
 		categoryService.update(categoryDto);
 		return categoryDto;
 	}

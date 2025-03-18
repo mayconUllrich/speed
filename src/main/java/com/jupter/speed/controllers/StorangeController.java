@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jupter.speed.dtos.StorangeDto;
 import com.jupter.speed.services.StorangeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/storange")
 public class StorangeController {
@@ -29,12 +31,12 @@ public class StorangeController {
 	}
 	
 	@PostMapping
-	public void insert(@RequestBody StorangeDto storangeDto) {
+	public void insert(@RequestBody @Valid StorangeDto storangeDto) {
 		storangeService.insert(storangeDto);
 	}
 	
 	@PutMapping
-	public StorangeDto update(@RequestBody StorangeDto storangeDto) {
+	public StorangeDto update(@RequestBody @Valid StorangeDto storangeDto) {
 		storangeService.update(storangeDto);
 		return storangeDto;
 	}

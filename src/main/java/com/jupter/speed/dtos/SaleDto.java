@@ -3,10 +3,16 @@ package com.jupter.speed.dtos;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+
 public class SaleDto {
 
 	Integer id;
+	@NotNull(message = "Data da venda é obrigatória.")
 	LocalDateTime dateOfSale;
+	@NotNull(message = "Preço total é obrigatório.")
+	@DecimalMin(value = "0.0", inclusive = false, message = "Preço total deve ser maior que 0.")
 	Double totalPrice;
 
 	// Getters and Setters

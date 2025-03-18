@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jupter.speed.dtos.SaleItemDto;
 import com.jupter.speed.services.SaleItemService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/sale-itens")
 public class SaleItemController {
@@ -29,12 +31,12 @@ public class SaleItemController {
 	}
 	
 	@PostMapping
-	public void insert(@RequestBody SaleItemDto saleItemDto) {
+	public void insert(@RequestBody @Valid SaleItemDto saleItemDto) {
 		saleItemService.insert(saleItemDto);
 	}
 	
 	@PutMapping
-	public SaleItemDto update(@RequestBody SaleItemDto saleItemDto) {
+	public SaleItemDto update(@RequestBody @Valid SaleItemDto saleItemDto) {
 		saleItemService.update(saleItemDto);
 		return saleItemDto;
 	}
